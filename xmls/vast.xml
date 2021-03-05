@@ -1,0 +1,41 @@
+<VAST xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="vast.xsd" version="3.0">
+  <Ad id="AD_ID" sequence="99">
+    <InLine>
+      <AdSystem version="1.0">SABS Ad Server</AdSystem>
+      <AdTitle>SABS</AdTitle>
+      <Description/>
+      <Survey/>
+      <Error>
+        <![CDATA[http://error.err]]>
+      </Error>
+      <Impression id="500">https://qkiipps372.execute-api.us-east-1.amazonaws.com/prod/sabs-ads</Impression>
+      <Impression id="sample-server">https://qkiipps372.execute-api.us-east-1.amazonaws.com/prod/sabs-ads</Impression>
+      <Creatives>
+        <Creative id="CREATIVE_ID">
+          <Linear>
+            <Duration>00:20:00</Duration>
+            <TrackingEvents>
+              <Tracking event="creativeView">https://qkiipps372.execute-api.us-east-1.amazonaws.com/prod/sabs-ads</Tracking>
+            </TrackingEvents>
+            <VideoClicks>
+              <ClickThrough id="">https://qkiipps372.execute-api.us-east-1.amazonaws.com/prod/sabs-ads</ClickThrough>
+            </VideoClicks>
+            <MediaFiles>
+              <MediaFile id="GDFP" delivery="progressive" width="640" height="360" type="video/mp4" bitrate="118" scalable="true" maintainAspectRatio="true">AD_URL</MediaFile>
+            </MediaFiles>
+          </Linear>
+        </Creative>
+        <Creative>
+          <CompanionAds>
+            <Companion width="300" height="250">
+              <StaticResource creativeType="image/jpeg">http://companionad.com/image.jpg</StaticResource>
+              <TrackingEvents>
+                <Tracking event="creativeView">http://companionad.com/creativeView</Tracking>
+              </TrackingEvents>
+            </Companion>
+          </CompanionAds>
+        </Creative>
+      </Creatives>
+    </InLine>
+  </Ad>
+</VAST>
