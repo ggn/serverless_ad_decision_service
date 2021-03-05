@@ -33,8 +33,9 @@ Resources:
       Environment:
         Variables:
           NODE_ENV: production
-          VAST_HOST: 'https://pubads.g.doubleclick.net/gampad/ads'
           OVERRIDE_ADS: 0
+          AD_URL : "https://{{YOUR_BUCKET_NAME}}.s3.amazonaws.com/"
+          VAST_URl : "https://{{YOUR_API_ID}}.execute-api.us-east-1.amazonaws.com/Prod/live"
       Role:
         Fn::GetAtt:
         - LambdaExecutionRole
@@ -80,3 +81,7 @@ Resources:
       ManagedPolicyArns:
         - !Sub 'arn:${AWS::Partition}:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole'
       PermissionsBoundary: !Sub 'arn:${AWS::Partition}:iam::${AWS::AccountId}:policy/CodeStar_${ProjectId}_PermissionsBoundary'
+Outputs:
+  WebEndpoint:
+    Description: "API Gateway endpoint URL for Prod stage"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/"

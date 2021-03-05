@@ -15,11 +15,11 @@ const MY_AD_INVENTORY = [
   { condition: { geo: "delhi", gender: "female" }, adfile: "delhi_female.mp4", adid: "2103" }
 ];
 
-const AD_URL = process.env.AD_URL_S3_BUCKET || "https://summit-ads.s3.amazonaws.com/",
-  VAST_URl = process.env.VAST_URL || `https://tbbnb0dpm9.execute-api.us-east-1.amazonaws.com/Prod/live`;
+const AD_URL = process.env.AD_URL_S3_BUCKET,
+  VAST_URl = process.env.VAST_URL;
 
 var getAdvertisementsfromADS = function(all_querystrings, callback) {
-  const vast_host = process.env.VAST_HOST, // "https://pubads.g.doubleclick.net",
+  const vast_host = process.env.VAST_HOST,
     override_ads = parseInt(process.env.OVERRIDE_ADS || '0'); // "1 or 0";
   console.log("override_ads", override_ads);
   if (override_ads <= 0 && vast_host && all_querystrings && all_querystrings.iu) {
@@ -33,7 +33,8 @@ var getAdvertisementsfromADS = function(all_querystrings, callback) {
 }
 
 var getPersonalisedAd = function(geo, gender) {
-  var adv = { adfile: "default.mp4", adid: "2009" }; //Default ad
+  var defaultAdId = new Date().getFullYear().toString() + new Date().getDay().toString() + new Date().getDate().toString();
+  var adv = { adfile: "default.mp4", adid: defaultAdId }; //Default ad with daily new adid
   if (!geo || !gender) {
     return adv;
   }
