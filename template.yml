@@ -14,7 +14,7 @@ Resources:
           NODE_ENV: production
           OVERRIDE_ADS: 0
           AD_URL_S3_BUCKET : "https://{{YOUR_BUCKET_NAME}}.s3.amazonaws.com/"
-          VAST_URl : "https://{{YOUR_API_ID}}.execute-api.us-east-1.amazonaws.com/Prod/live"
+          VAST_URl : "{{YOUR_API_ENDPOINT}}/live"
       Role:
         Fn::GetAtt:
         - LambdaExecutionRole
